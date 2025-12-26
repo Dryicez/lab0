@@ -78,6 +78,11 @@ public partial class Crawler
                     if(link.StartsWith("http", StringComparison.InvariantCultureIgnoreCase))
                     {
                         // Your code here
+                        if (level > 1)
+                        {
+                            await GetPage(link, level - 1);// add function recursive call to get links page
+                        }
+
                         // Note: It should be recursive operation here
 
                         // limit number of links in the page, otherwise it will load lots of data
